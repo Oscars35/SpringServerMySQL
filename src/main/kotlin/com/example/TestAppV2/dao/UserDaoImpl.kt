@@ -35,9 +35,11 @@ class UserDaoImpl (@Autowired val dataSource3: DataSource): JdbcDaoSupport(), Us
   }
 
   override fun insertUserById(request: UserRequest): User {
-    val sql = "INSERT INTO Users(id, name) VALUES (${request.id}, '${request.name}')";
+    val sql = "INSERT INTO Users(name) VALUES ('${request.name}')";
     jdbcTemplate!!.execute(sql);
-    val user = User(request.id, request.name);
+    val sql2 = "SELECT * FROM Users ORDER BY ID DESC LIMIT 1";
+    val rows = jdbcTemplate!!.queryForList(sql2);
+    val user = User(rows[0]["id"].toString().toInt(), rows[0]["name"].toString());
     return user;
   }
 }
