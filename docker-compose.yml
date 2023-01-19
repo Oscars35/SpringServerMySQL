@@ -1,0 +1,26 @@
+version: "3.6"
+
+services:
+  mysql-spring-server:
+    container_name: mysql-spring-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spring-mysql-server-app
+    ports:
+      - 8080:8080
+    networks:
+      - privet-net
+  mysql-server:
+    container_name: mysqldb2
+    image: mysql
+    ports:
+      - 3307:3306
+    networks:
+      - privet-net
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=Test
+networks:
+  privet-net:
+    driver: bridge
