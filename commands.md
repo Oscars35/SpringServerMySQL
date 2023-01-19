@@ -40,3 +40,8 @@ EXPOSE 8080
 CMD ["java", "-jar", "TestAppV2-0.0.1-SNAPSHOT.jar"]
 ```
 #### Then just build the image as we have done in the other docker project.
+
+# Now i have a docker compose that does all automatically.
+```bash
+docker-compose up
+```
