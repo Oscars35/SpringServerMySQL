@@ -45,3 +45,11 @@ CMD ["java", "-jar", "TestAppV2-0.0.1-SNAPSHOT.jar"]
 ```bash
 docker-compose up
 ```
+### Change the flag allowKeyRetrieval from false to true
+```
+allowKeyRetrieval=TRUE
+```
+### att: we have to create the Users db (as i said)
+```roomsql
+CREATE TABLE Users(id int NOT NULL AUTO_INCREMENT PRIMARY KEY, name varchar(255));
+```
