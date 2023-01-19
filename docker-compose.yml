@@ -21,6 +21,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=Test
+      - ENABLE_CORS=true
 networks:
   privet-net:
     driver: bridge
